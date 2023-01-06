@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni 2023</title>
+    <link rel="icon" href="svitlogo.png" type="image/x-icon">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <div>
+        <img src="svitlogo.png" alt="centered image" />
+    </div>
+
+    <style>
+        body{
+            background-color:powderblue
+        }
+        
+            .register .nav-tabs .nav-link:hover{
+                border: none;
+            }
+            .text-align{
+                margin-top: -15%;
+                margin-bottom: -12%;
+
+                padding: 10%;
+                margin-left: 30%;
+            }
+            .form-new{
+                margin-right: 22%;
+                margin-left: 20%;
+            }
+            .register-heading{
+                margin-left: 21%;
+                margin-bottom: 10%;
+                color: #e9ecef;
+            }
+            .register-heading h1{
+                margin-left: 21%;
+                margin-bottom: 10%;
+                color: #e9ecef;
+            }
+            .register{
+                background: -webkit-linear-gradient(left, #055a4f, #00c6ff);
+                
+                margin-top: 0%;
+                padding: 3%;
+                border-radius: 300rem;
+            }
+            .btnSubmit
+            {
+                width: 50%;
+                border-radius: 1rem;
+                padding: 1.5%;
+                color: #fff;
+                background-color: #03612e;
+                border: none;
+                cursor: pointer;
+                margin-right: 6%;
+                color: rgb(246, 246, 252);
+                margin-top: 4%;
+            }
+            
+    </style>
+
+</head>
+
+<body>
+    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+        <h1 class="text-center" style="background-color:powderblue;" >ALUMNI MEET 2023</h1>
+      </nav>
+    
+    
+<div class="container register">
+    
+            <div class="row">
+                <div class="col-md-12">
+                        <div class="tab-pane fade show active text-align form-new" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row register-form">
+                                <div class="col-md-12">
+                                    <body>
+                                        <div id="qrcode" class="mt-5 text-center">
+                                                                         
+                                        </div>
+                                    </body>
+                                    <form method="post" autocomplete="on" name="google-sheet">
+                                        <div class="form-group">
+                                            <label class="text-white dark:text-gray-200" >Name</label>
+                                            <input id="q" type="text" name="Name" class="form-control" placeholder="Your Name *" value="" required=""/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="text-white dark:text-gray-200" >Email Address</label>
+                                            <input id="w" type="text" name="Email" class="form-control" placeholder="Your Email *" value="" required=""/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="text-white dark:text-gray-200" >Mobile Number</label>
+                                            <input id="e" type="number" name="Phone" class="form-control" placeholder="Your Contact Number *" value="" required="please enter your phone number"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="text-white dark:text-gray-200" >Pass Out Year</label>
+                                            <input id="r" type="number" name="Pass year" class="form-control" placeholder="Pass out year *" value="" required="year"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="text-white dark:text-gray-200" >Occupation</label>
+                                            <input id="t" type="text" name="Occupation" class="form-control" placeholder=" Job*"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input id="submit" type="submit" name="submit" class="btnSubmit btn-block" onclick="generateqr()" value="Login" />
+                                        </div>
+                                    </form>
+                                
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        
+          <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbz9gFboDPTm1oEAy8lYwmGAuWhI7G67ACBI8xLmj9OFOFbWkc6b1ZVECY1tmC1PN1Ld/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+          <script>
+            function generateqr(){
+                var a= document.getElementById('q').value;
+                var s= document.getElementById('w').value;
+                var d= document.getElementById('e').value;
+                var f= document.getElementById('r').value;
+                var g= document.getElementById('t').value;
+                console.log('name: '+a + " " + s + " " + d + " " + f + " " +g);
+
+                var url = "https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl= Name:" +
+                a + "%0aEmail:" + s + "%0aPhone no:" + d + "%0aPass out year:" + f + "%0aOccupation:" + g;
+
+
+                var ifr = `<iframe src="${url}" height="200" width="200"></iframe>`;
+
+                document.getElementById('qrcode').innerHTML = ifr;
+            }
+          </script>
+          <h3>Please save your qr</h3></h1>
+
+
+           <style>
+            h1{
+                font-size: 2.1rem;
+                line-height: 1.4;
+            }
+            body{
+                background-color:powderblue
+            }
+            .maindiv{
+                width: 70%;
+                height: 400px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,160%);
+                background-image: url('1.jpg');
+                background-size: 100% 100%;
+                box-shadow: 1px 2px 20px white;
+                animation: slider 60s infinite linear;
+            }
+            @keyframes slider{
+                0%{  background-image: url('1.jpg');}
+                5%{ background-image: url('2.jpg');}
+                10%{background-image: url('3.jpg'); }
+                15%{background-image: url('4.jpg'); }
+                20%{background-image: url('5.jpg'); }
+                25%{background-image: url('6.jpg'); }
+                30%{background-image: url('7.jpg'); }
+                35%{background-image: url('8.jpg'); }
+                40%{background-image: url('9.jpg'); }
+                45%{background-image: url('10.jpg'); }
+                50%{background-image: url('11.jpg'); }
+                55%{background-image: url('12.jpg'); }
+                60%{background-image: url('13.jpg'); }
+                65%{background-image: url('14.jpg'); }
+                70%{background-image: url('15.jpg'); }
+                75%{background-image: url('16.jpg'); }
+                80%{background-image: url('17.jpg'); }
+                85%{background-image: url('18.jpg'); }
+                90%{background-image: url('19.jpg'); }
+                95%{background-image: url('20.jpg'); }
+                100%{background-image: url('svitlogo.png'); }
+            }
+           </style>
+           <div class="maindiv">
+
+           </div>
+        
+</body>
+</html>
